@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Todo List'),
-
+		'key' => env('APP_KEY', 'SomeRandomStringSomeRandomString'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
