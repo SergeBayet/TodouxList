@@ -1,7 +1,7 @@
 // App.vue
 
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div>
       <transition name="fade">
         <router-view></router-view>
@@ -11,13 +11,8 @@
 </template>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
+body {
+  font-family: "Nunito", sans-serif;
 }
 </style>
 

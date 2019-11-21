@@ -16,35 +16,41 @@ class TaskController extends Controller
 
 	public function store(Request $request)
 	{
-		$post = new Task([
+		$task = new Task([
+			'idUser_fk' => Auth::user()->id,
 			'name' => $request->get('name'),
 			'description' => $request->get('description'),
 			'progress' => $request->get('progress')
 		]);
 
-		$post->save();
+		$task->save();
 
 		return response()->json('success');
 	}
 	public function index() {
-		$tasks = Task::where(['idUser_fk' => Auth::user()->id])->get();
+		$tasks = Task::where(['idUser_fk' => Auth::user()->id])->orderBy('created_at', 'DESC')->get();
 		return response()->json($tasks, 200);
 
 	}
+	public function edit($id)
+	{
+		$task = Task::find($id);
+		return response()->json($task);
+	}
 	public function update($id, Request $request)
 	{
-		$post = Task::find($id);
+		$task = Task::find($id);
 
-		$post->update($request->all());
+		$task->update($request->all());
 
 		return response()->json('successfully updated');
 	}
 
 	public function delete($id)
 	{
-		$post = Task::find($id);
+		$task = Task::find($id);
 
-		$post->delete();
+		$task->delete();
 
 		return response()->json('successfully deleted');
 	}

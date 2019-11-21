@@ -14,15 +14,24 @@ import App from "./App.vue";
 Vue.use(VueAxios, axios);
 
 import HomeComponent from "./components/HomeComponent.vue";
-//import CreateComponent from './components/CreateComponent.vue';
-//import IndexComponent from './components/IndexComponent.vue';
-//import EditComponent from './components/EditComponent.vue';
+import CreateTaskComponent from "./components/CreateTaskComponent.vue";
+import EditTaskComponent from "./components/EditTaskComponent.vue";
 
 const routes = [
     {
         name: "home",
         path: "/home",
         component: HomeComponent
+    },
+    {
+        name: "create",
+        path: "/create",
+        component: CreateTaskComponent
+    },
+    {
+        name: "edit",
+        path: "/edit",
+        component: EditTaskComponent
     }
 ];
 
